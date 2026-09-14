@@ -2,8 +2,9 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
-// base must match the GitHub Pages sub-path: https://<user>.github.io/Quality-Vision/
+// Relative base: the built bundle works at the domain root, under a GitHub
+// Pages project sub-path (/Quality-Vision/), or opened straight from disk.
 export default defineConfig({
-  base: process.env.GITHUB_PAGES === "true" ? "/Quality-Vision/" : "/",
+  base: "./",
   plugins: [react(), tailwindcss()],
 });

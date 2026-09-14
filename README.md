@@ -32,12 +32,14 @@ npm run preview  # serve the built bundle
 ## Deploy
 
 Pushing to `main` builds the site and publishes it through
-`.github/workflows/deploy.yml`. Enable it once in
-**Settings → Pages → Source → GitHub Actions**; the site is then served at
+`.github/workflows/deploy.yml`, which also switches the repository's Pages
+source to GitHub Actions on its first run (`actions/configure-pages` with
+`enablement: true`). Nothing to set by hand; the site is served at
 `https://<user>.github.io/Quality-Vision/`.
 
-The Pages sub-path is applied through the `GITHUB_PAGES` environment variable
-(see `vite.config.js`), so local builds keep a plain `/` base.
+`vite.config.js` uses a relative base (`./`), so the same build works at the
+domain root, under a project sub-path, or opened straight from disk. Renaming
+the repository does not break the assets.
 
 ## Where to change what
 
